@@ -15,7 +15,7 @@ function Workouts() {
       setError('');
 
       try {
-        const result = await fetchResource('workouts', controller.signal);
+        const result = await fetchResource('/api/workouts/', controller.signal);
         setWorkouts(result.items);
         setMeta(result.meta);
       } catch (requestError) {

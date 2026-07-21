@@ -15,7 +15,7 @@ function Leaderboard() {
       setError('');
 
       try {
-        const result = await fetchResource('leaderboard', controller.signal);
+        const result = await fetchResource('/api/leaderboard/', controller.signal);
         setEntries(result.items);
         setMeta(result.meta);
       } catch (requestError) {

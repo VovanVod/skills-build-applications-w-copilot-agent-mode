@@ -12,8 +12,8 @@ function inferCodespaceNameFromHost() {
 const resolvedCodespaceName = configuredCodespaceName || inferCodespaceNameFromHost();
 
 export const apiBaseUrl = resolvedCodespaceName
-  ? `https://${resolvedCodespaceName}-8000.app.github.dev/api`
-  : 'http://localhost:8000/api';
+  ? `https://${resolvedCodespaceName}-8000.app.github.dev`
+  : 'http://localhost:8000';
 
 export const isCodespaceFallback = !resolvedCodespaceName;
 
@@ -52,8 +52,9 @@ export function normalizeResourceResponse(payload) {
   };
 }
 
-export async function fetchResource(resource, signal) {
-  const url = `${apiBaseUrl}/${resource}/`;
+export async function fetchResource(resourcePath, signal) {
+  const normalizedPath = resourcePath.startsWith('/') ? resourcePath : `/${resourcePath}`;
+  const url = `${apiBaseUrl}${normalizedPath}`;
   const response = await fetch(url, { signal });
 
   if (!response.ok) {

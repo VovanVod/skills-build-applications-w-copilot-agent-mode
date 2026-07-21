@@ -15,7 +15,7 @@ function Teams() {
       setError('');
 
       try {
-        const result = await fetchResource('teams', controller.signal);
+        const result = await fetchResource('/api/teams/', controller.signal);
         setTeams(result.items);
         setMeta(result.meta);
       } catch (requestError) {

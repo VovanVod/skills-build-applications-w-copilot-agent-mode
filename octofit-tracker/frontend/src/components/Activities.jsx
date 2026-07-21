@@ -15,7 +15,7 @@ function Activities() {
       setError('');
 
       try {
-        const result = await fetchResource('activities', controller.signal);
+        const result = await fetchResource('/api/activities/', controller.signal);
         setActivities(result.items);
         setMeta(result.meta);
       } catch (requestError) {

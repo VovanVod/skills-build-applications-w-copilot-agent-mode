@@ -15,7 +15,7 @@ function Users() {
       setError('');
 
       try {
-        const result = await fetchResource('users', controller.signal);
+        const result = await fetchResource('/api/users/', controller.signal);
         setUsers(result.items);
         setMeta(result.meta);
       } catch (requestError) {

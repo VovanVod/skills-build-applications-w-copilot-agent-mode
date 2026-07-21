@@ -20,7 +20,7 @@ function App() {
           React 19 presentation tier connected to the Express + MongoDB API.
         </p>
         <p className="small mb-3">
-          <span className="text-secondary">API base:</span> <code>{apiBaseUrl}</code>
+          <span className="text-secondary">Base domain:</span> <code>{apiBaseUrl}</code>
         </p>
         <nav className="nav nav-pills flex-wrap gap-2">
           <NavLink to="/users" className={navClassName}>
