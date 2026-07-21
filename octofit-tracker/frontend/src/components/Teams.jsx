@@ -15,6 +15,7 @@ function Teams() {
       setError('');
 
       try {
+        // Codespaces endpoint format: https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/teams/
         const result = await fetchResource('/api/teams/', controller.signal);
         setTeams(result.items);
         setMeta(result.meta);

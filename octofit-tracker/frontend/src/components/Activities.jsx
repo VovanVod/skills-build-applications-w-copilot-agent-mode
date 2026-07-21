@@ -15,6 +15,7 @@ function Activities() {
       setError('');
 
       try {
+        // Codespaces endpoint format: https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/activities/
         const result = await fetchResource('/api/activities/', controller.signal);
         setActivities(result.items);
         setMeta(result.meta);

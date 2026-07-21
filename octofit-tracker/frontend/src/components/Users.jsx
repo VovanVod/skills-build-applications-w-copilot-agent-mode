@@ -15,6 +15,7 @@ function Users() {
       setError('');
 
       try {
+        // Codespaces endpoint format: https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/users/
         const result = await fetchResource('/api/users/', controller.signal);
         setUsers(result.items);
         setMeta(result.meta);

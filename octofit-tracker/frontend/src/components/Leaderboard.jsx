@@ -15,6 +15,7 @@ function Leaderboard() {
       setError('');
 
       try {
+        // Codespaces endpoint format: https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/leaderboard/
         const result = await fetchResource('/api/leaderboard/', controller.signal);
         setEntries(result.items);
         setMeta(result.meta);
