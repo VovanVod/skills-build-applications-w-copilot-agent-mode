@@ -16,6 +16,21 @@ const PORT = Number(process.env.PORT) || 8000;
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (_req, res) => {
+  res.json({
+    message: 'OctoFit backend API',
+    apiBaseUrl,
+    routes: {
+      health: '/api/health',
+      users: '/api/users',
+      activities: '/api/activities',
+      teams: '/api/teams',
+      leaderboard: '/api/leaderboard',
+      workouts: '/api/workouts',
+    },
+  });
+});
+
 app.use('/api/users', usersRouter);
 app.use('/api/teams', teamsRouter);
 app.use('/api/activities', activitiesRouter);
